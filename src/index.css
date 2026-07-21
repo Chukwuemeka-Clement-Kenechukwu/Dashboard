@@ -1,0 +1,517 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap");
+
+@layer global {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    /* padding: 5px 0; */
+    background-color: #fbf3e8f3;
+    font-family: "Inter", sans-serif;
+  }
+
+  .recentActivity.dark {
+    background: #1b1b1b;
+    color: white;
+  }
+
+  .recentActivity.light {
+    background: white;
+    color: black;
+  }
+
+  /* .dark {
+    background-color: black;
+    color: white;
+  } */
+  .dashboard_container.dark {
+    background: rgb(35, 34, 34);
+    color: white;
+  }
+
+  .dashboard_container.dark .aside {
+    background: #404040;
+    color: white;
+  }
+
+  .dashboard_container.light .aside {
+    background: #ffffff;
+    color: rgb(8, 8, 8);
+  }
+
+  .dashboard_container.dark .nav {
+    background: #121212;
+    color: white;
+  }
+  .dashboard_container.dark .card {
+    background: #0e0e0e;
+    color: white;
+
+    .vcall {
+      background-color: #404040;
+    }
+  }
+
+  .dashboard_container.light .card {
+    background: #ffffff;
+    color: rgb(7, 7, 7);
+
+    .vcall {
+      background-color: #cfc8c8;
+    }
+  }
+
+  /* .light {
+    background-color: rgb(174, 162, 162);
+    color: black;
+  } */
+}
+
+@layer components {
+  /* DASHBOARD COMPONENT DESIGN */
+  .dashboard_container {
+    display: flex;
+    column-gap: 5px;
+    /* width: 100vw; */
+    justify-content: center;
+
+    .innerContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      /* background-color: red; */
+    }
+  }
+
+  /* SIDE BAR COMPONENT DESIGN */
+  .aside {
+    width: 20%;
+    min-height: 100vh;
+    /* background-color: white;
+    color: black; */
+    padding: 40px 20px;
+
+    .humLogo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+      /* justify-content: center; */
+      column-gap: 5px;
+      /* height: 100px; */
+      /* background-color: green; */
+
+      img {
+        width: 30px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .menu_container {
+      /* margin-top: 50px; */
+
+      .menu {
+        font-size: 12px;
+      }
+
+      ul {
+        margin-top: 50px;
+        /* align-items: center; */
+
+        .link {
+          display: flex;
+          text-decoration: none;
+          margin-top: 30px;
+          color: inherit;
+          font-weight: 700;
+          width: 100%;
+          padding: 10px 5px;
+
+          &:hover {
+            background-color: #01390c;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    .profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      gap: 10px;
+
+      .imgDiv {
+        width: 50px;
+        height: 60px;
+        background-color: white;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .greetings {
+        h2 {
+          font-size: 20px;
+          font-weight: 400;
+          > span {
+            color: #027218;
+            font-weight: 700;
+          }
+        }
+        .date {
+          font-size: 10px;
+          margin-top: 0px;
+          font-weight: 500;
+        }
+      }
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 10px;
+
+      li {
+        padding: 10px;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .round {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+  }
+  /* CARD ROW COMPONENT */
+  .cardRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 15px;
+    gap: 20px;
+
+    .card {
+      padding: 20px 10px;
+      border-radius: 8px;
+      box-shadow: 1px 2px 2px gray;
+      transition: 0.5s ease-in;
+
+      &:hover {
+        scale: 1.1;
+      }
+
+      .title {
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 600;
+      }
+      .activities {
+        display: flex;
+        justify-content: space-between;
+
+        .number {
+          font-size: 25px;
+          font-weight: 600;
+        }
+
+        .vcall {
+          /* background-color: beige; */
+          padding: 10px;
+          font-size: 12px;
+        }
+      }
+
+      .timeColor {
+        display: flex;
+        column-gap: 10px;
+        font-size: 13px;
+        margin-top: 10px;
+
+        .green {
+          color: green;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  /* GRAPHCARD COMPONENT */
+  .graphCard {
+    background: white;
+    color: black;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    .dark {
+      background: #1f1f1f;
+      color: white;
+    }
+    .dark .recharts-cartesian-grid line {
+      stroke: #444;
+    }
+    .dark .recharts-text {
+      fill: white;
+    }
+
+    .graphHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .chartWrapper {
+      position: relative;
+    }
+
+    .totalPatients {
+      position: absolute;
+      top: 20px;
+      left: 48%;
+      transform: translateX(-50%);
+      background: rgba(233, 248, 243, 0.95);
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+      h2 {
+        font-size: 28px;
+      }
+      span {
+        font-size: 13px;
+        color: gray;
+      }
+    }
+  }
+  /* MIDDLE SECTION */
+  .middleSection {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+    padding-inline: 20px;
+  }
+}
+.quickActions {
+  background: white;
+  color: black;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.quick-actions.dark {
+  background: #1f1f1f;
+  color: white;
+}
+
+.quick-actions.dark button {
+  background: #2d2d2d;
+  color: white;
+  border: 1px solid #444;
+}
+
+.quick-actions.dark button:hover {
+  background: #0f6b4c;
+}
+
+.actionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.actionGrid button {
+  height: 90px;
+  border: none;
+  background: #edf8f5;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  transition: 0.3s;
+}
+
+.actionGrid button:hover {
+  transform: translateY(-3px);
+}
+
+.activeBtn {
+  background: #00573d !important;
+  color: white;
+}
+
+/* Appointment component */
+.appointmentCard {
+  margin-top: 20px;
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.appointmentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.appointmentCard.dark {
+  background: #1f1f1f;
+  color: white;
+}
+
+.appointmentCard.dark table {
+  color: white;
+}
+
+.appointmentCard.dark th {
+  background: #2b2b2b;
+}
+
+.appointmentCard.dark td {
+  border-color: #444;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 15px;
+  background: #edf8f5;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.patientInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.patientInfo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.confirmed {
+  background: #d9f6e8;
+  color: green;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.waiting {
+  background: #fff3d5;
+  color: orange;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.pending {
+  background: #ececec;
+  color: gray;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.recentActivity {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.recentActivity.light {
+  background: white;
+  color: black;
+}
+
+.recentActivity.dark {
+  background: #202020;
+  color: white;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.activityCard {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.recentActivity.dark .activityCard {
+  border-bottom: 1px solid #333;
+}
+
+.activityCard img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.activityText {
+  flex: 1;
+}
+
+.activityText h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.activityText small {
+  color: gray;
+}
+
+.activityCard span {
+  font-size: 12px;
+  color: gray;
+}
