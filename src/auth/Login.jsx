@@ -9,5 +9,9 @@ export const Login = () => {
     navigate("/dashboard");
   };
 
-  return <button onClick={handleLogin}>Login</button>;
+  return (
+    <button className="login" onClick={handleLogin}>
+      Login
+    </button>
+  );
 };

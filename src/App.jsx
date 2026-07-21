@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { Dashboard } from "./Layout/Dashboard";
 import { Overview } from "./pages/Overview";
@@ -12,6 +12,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route
           path="/dashboard"
           element={
@@ -20,6 +21,7 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route index element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="patient" element={<Patients />} />
           <Route path="appointment" element={<Appointments />} />
